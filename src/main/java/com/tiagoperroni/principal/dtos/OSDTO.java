@@ -7,6 +7,8 @@ import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tiagoperroni.principal.domain.OS;
+import com.tiagoperroni.principal.domain.enums.Prioridade;
+import com.tiagoperroni.principal.domain.enums.Status;
 
 public class OSDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -66,14 +68,6 @@ public class OSDTO implements Serializable {
 		this.dataFechamento = dataFechamento;
 	}
 
-	public Integer getPrioridade() {
-		return prioridade;
-	}
-
-	public void setPrioridade(Integer prioridade) {
-		this.prioridade = prioridade;
-	}
-
 	public String getObservacoes() {
 		return observacoes;
 	}
@@ -81,9 +75,17 @@ public class OSDTO implements Serializable {
 	public void setObservacoes(String observacoes) {
 		this.observacoes = observacoes;
 	}
+	
+	public Prioridade getPrioridade() {
+		return Prioridade.toEnum(this.prioridade);
+	}
 
-	public Integer getStatus() {
-		return status;
+	public void setPrioridade(Integer prioridade) {
+		this.prioridade = prioridade;
+	}
+
+	public Status getStatus() {
+		return Status.toEnum(this.status);
 	}
 
 	public void setStatus(Integer status) {
